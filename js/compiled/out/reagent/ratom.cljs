@@ -4,7 +4,8 @@
   (:require [reagent.impl.util :as util]
             [reagent.debug :refer-macros [dbg log warn error dev? time]]
             [reagent.impl.batching :as batch]
-            [clojure.set :as s]))
+            [clojure.set :as s]
+            [goog.object :as obj]))
 
 (declare ^:dynamic *ratom-context*)
 (defonce ^boolean debug false)
@@ -33,10 +34,20 @@
                  false))))))
 
 (defn- in-context [obj f]
+  "When f is executed, if (f) derefs any ratoms, they are then added to 'obj.captured'(*ratom-context*).
+
+   See function notify-deref-watcher! to know how *ratom-context* is updated"
   (binding [*ratom-context* obj]
     (f)))
 
-(defn- deref-capture [f r]
+(defn- deref-capture
+  "Returns `(in-context f r)`.  Calls `_update-watching` on r with any
+   `deref`ed atoms captured during `in-context`, if any differ from the
+   `watching` field of r.  Clears the `dirty?` flag on r.
+
+   Inside '_update-watching' along with adding the ratoms in 'r.watching' of reaction,
+   the reaction is also added to the list of watches on each ratoms f derefs."
+  [f ^clj r]
   (set! (.-captured r) nil)
   (when (dev?)
     (set! (.-ratomGeneration r) (set! generation (inc generation))))
@@ -48,7 +59,11 @@
       (._update-watching r c))
     res))
 
-(defn- notify-deref-watcher! [derefed]
+(defn- notify-deref-watcher!
+  "Add `derefed` to the `captured` field of `*ratom-context*`.
+
+  See also `in-context`"
+  [derefed]
   (when-some [r *ratom-context*]
     (let [c (.-captured r)]
       (if (nil? c)
@@ -60,17 +75,17 @@
     (swap! -running + (- (count new) (count old))))
   new)
 
-(defn- add-w [this key f]
+(defn- add-w [^clj this key f]
   (let [w (.-watches this)]
     (set! (.-watches this) (check-watches w (assoc w key f)))
     (set! (.-watchesArr this) nil)))
 
-(defn- remove-w [this key]
+(defn- remove-w [^clj this key]
   (let [w (.-watches this)]
     (set! (.-watches this) (check-watches w (dissoc w key)))
     (set! (.-watchesArr this) nil)))
 
-(defn- notify-w [this old new]
+(defn- notify-w [^clj this old new]
   (let [w (.-watchesArr this)
         a (if (nil? w)
             ;; Copy watches to array for speed
@@ -173,10 +188,8 @@
 
 (declare make-reaction)
 
-(def ^{:private true :const true} cache-key "reagReactionCache")
-
-(defn- cached-reaction [f o k obj destroy]
-  (let [m (aget o cache-key)
+(defn- cached-reaction [f ^clj o k ^clj obj destroy]
+  (let [m (.-reagReactionCache o)
         m (if (nil? m) {} m)
         r (m k nil)]
     (cond
@@ -185,15 +198,15 @@
       :else (let [r (make-reaction
                      f :on-dispose (fn [x]
                                      (when debug (swap! -running dec))
-                                     (as-> (aget o cache-key) _
+                                     (as-> (.-reagReactionCache o) _
                                        (dissoc _ k)
-                                       (aset o cache-key _))
+                                       (set! (.-reagReactionCache o) _))
                                      (when (some? obj)
                                        (set! (.-reaction obj) nil))
                                      (when (some? destroy)
                                        (destroy x))))
                   v (-deref r)]
-              (aset o cache-key (assoc m k r))
+              (set! (.-reagReactionCache o) (assoc m k r))
               (when debug (swap! -running inc))
               (when (some? obj)
                 (set! (.-reaction obj) r))
@@ -209,7 +222,7 @@
       (cached-reaction #(apply f args) f args this nil)))
 
   IEquiv
-  (-equiv [_ other]
+  (-equiv [_ ^clj other]
     (and (instance? Track other)
          (= f (.-f other))
          (= args (.-args other))))
@@ -246,7 +259,7 @@
   IReactiveAtom
 
   IEquiv
-  (-equiv [_ other]
+  (-equiv [_ ^clj other]
     (and (instance? RCursor other)
          (= path (.-path other))
          (= ratom (.-ratom other))))
@@ -303,12 +316,14 @@
   (-hash [_] (hash [ratom path])))
 
 (defn cursor
-  [src path]
+  [^clj src path]
   (assert (or (satisfies? IReactiveAtom src)
               (and (ifn? src)
                    (not (vector? src))))
           (str "src must be a reactive atom or a function, not "
-               (pr-str src)))
+               (pr-str src)
+               " while attempting to get path: "
+               (pr-str path)))
   (->RCursor src path nil nil nil))
 
 
@@ -334,10 +349,18 @@
 (defprotocol IRunnable
   (run [this]))
 
-(defn- handle-reaction-change [this sender old new]
+(defn- handle-reaction-change [^clj this sender old new]
   (._handle-change this sender old new))
 
-
+;; Fields of a Reaction javascript object
+;; - auto_run
+;; - captured
+;; - caught
+;; - f
+;; - ratomGeneration
+;; - state
+;; - watches
+;; - watching
 (deftype Reaction [f ^:mutable state ^:mutable ^boolean dirty? ^boolean nocache?
                    ^:mutable watching ^:mutable watches ^:mutable auto-run
                    ^:mutable caught]
@@ -499,7 +522,16 @@
 
 (def ^:private temp-reaction (make-reaction nil))
 
-(defn run-in-reaction [f obj key run opts]
+
+(defn run-in-reaction
+  "Evaluates `f` and returns the result.  If `f` calls `deref` on any ratoms,
+   creates a new Reaction that watches those atoms and calls `run` whenever
+   any of those watched ratoms change.  Also, the new reaction is added to
+   list of 'watches' of each of the ratoms. The `run` parameter is a function
+   that should expect one argument.  It is passed `obj` when run.  The `opts`
+   are any options accepted by a Reaction and will be set on the newly created
+   Reaction. Sets the newly created Reaction to the `key` on `obj`."
+  [f obj key run opts]
   (let [r temp-reaction
         res (deref-capture f r)]
     (when-not (nil? (.-watching r))
@@ -507,7 +539,7 @@
       (._set-opts r opts)
       (set! (.-f r) f)
       (set! (.-auto-run r) #(run obj))
-      (aset obj key r))
+      (obj/set obj key r))
     res))
 
 (defn check-derefs [f]
@@ -548,7 +580,7 @@
   (-swap! [a f x y more] (-reset! a (apply f state x y more)))
 
   IEquiv
-  (-equiv [_ other]
+  (-equiv [_ ^clj other]
           (and (instance? Wrapper other)
                ;; If either of the wrappers have changed, equality
                ;; cannot be relied on.

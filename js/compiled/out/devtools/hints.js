@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.10.520 {}
+// Compiled by ClojureScript 1.10.773 {}
 goog.provide('devtools.hints');
 goog.require('cljs.core');
 goog.require('devtools.prefs');
@@ -43,9 +43,9 @@ xhr.send();
 return devtools.hints.empty_as_nil.call(null,xhr.responseText);
 });
 devtools.hints.retrieve_javascript_source = (function devtools$hints$retrieve_javascript_source(where){
-var reader = (function (){var or__4131__auto__ = devtools.prefs.pref.call(null,new cljs.core.Keyword(null,"file-reader","file-reader",-450847664));
-if(cljs.core.truth_(or__4131__auto__)){
-return or__4131__auto__;
+var reader = (function (){var or__4126__auto__ = devtools.prefs.pref.call(null,new cljs.core.Keyword(null,"file-reader","file-reader",-450847664));
+if(cljs.core.truth_(or__4126__auto__)){
+return or__4126__auto__;
 } else {
 return devtools.hints.ajax_reader;
 }
@@ -76,9 +76,9 @@ var content = devtools.hints.retrieve_javascript_source.call(null,file);
 var lines = content.split("\n");
 var line = devtools.hints.get_line.call(null,lines,line_number);
 var marked_line = devtools.hints.mark_call_closed_at_column.call(null,line,column);
-var min_length = (function (){var or__4131__auto__ = devtools.prefs.pref.call(null,new cljs.core.Keyword(null,"sanity-hint-min-length","sanity-hint-min-length",104958154));
-if(cljs.core.truth_(or__4131__auto__)){
-return or__4131__auto__;
+var min_length = (function (){var or__4126__auto__ = devtools.prefs.pref.call(null,new cljs.core.Keyword(null,"sanity-hint-min-length","sanity-hint-min-length",104958154));
+if(cljs.core.truth_(or__4126__auto__)){
+return or__4126__auto__;
 } else {
 return (128);
 }
@@ -100,27 +100,27 @@ devtools.hints.error_object_sense = (function devtools$hints$error_object_sense(
 try{var native_stack_trace = error.stack;
 var stack_trace = devtools.hints.parse_stacktrace.call(null,native_stack_trace);
 var top_item = cljs.core.second.call(null,stack_trace);
-var map__24933 = top_item;
-var map__24933__$1 = (((((!((map__24933 == null))))?(((((map__24933.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__24933.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__24933):map__24933);
-var file = cljs.core.get.call(null,map__24933__$1,new cljs.core.Keyword(null,"file","file",-1269645878));
-var line = cljs.core.get.call(null,map__24933__$1,new cljs.core.Keyword(null,"line","line",212345235));
-var column = cljs.core.get.call(null,map__24933__$1,new cljs.core.Keyword(null,"column","column",2078222095));
+var map__30070 = top_item;
+var map__30070__$1 = (((((!((map__30070 == null))))?(((((map__30070.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__30070.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__30070):map__30070);
+var file = cljs.core.get.call(null,map__30070__$1,new cljs.core.Keyword(null,"file","file",-1269645878));
+var line = cljs.core.get.call(null,map__30070__$1,new cljs.core.Keyword(null,"line","line",212345235));
+var column = cljs.core.get.call(null,map__30070__$1,new cljs.core.Keyword(null,"column","column",2078222095));
 return devtools.hints.make_sense_of_the_error.call(null,error.message,file,line,column);
-}catch (e24932){var _e = e24932;
+}catch (e30069){var _e = e30069;
 return false;
 }});
 devtools.hints.type_error_to_string = (function devtools$hints$type_error_to_string(self){
-var temp__5718__auto___24935 = devtools.hints.get_processed_errors_BANG_.call(null);
-if(cljs.core.truth_(temp__5718__auto___24935)){
-var seen_errors_24936 = temp__5718__auto___24935;
-if(cljs.core.truth_(seen_errors_24936.has(self))){
+var temp__5718__auto___30072 = devtools.hints.get_processed_errors_BANG_.call(null);
+if(cljs.core.truth_(temp__5718__auto___30072)){
+var seen_errors_30073 = temp__5718__auto___30072;
+if(cljs.core.truth_(seen_errors_30073.has(self))){
 } else {
-seen_errors_24936.add(self);
+seen_errors_30073.add(self);
 
-var temp__5720__auto___24937 = devtools.hints.error_object_sense.call(null,self);
-if(cljs.core.truth_(temp__5720__auto___24937)){
-var sense_24938 = temp__5720__auto___24937;
-self.message = [cljs.core.str.cljs$core$IFn$_invoke$arity$1(self.message),", a sanity hint:\n",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sense_24938)].join('');
+var temp__5720__auto___30074 = devtools.hints.error_object_sense.call(null,self);
+if(cljs.core.truth_(temp__5720__auto___30074)){
+var sense_30075 = temp__5720__auto___30074;
+(self.message = [cljs.core.str.cljs$core$IFn$_invoke$arity$1(self.message),", a sanity hint:\n",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sense_30075)].join(''));
 } else {
 }
 }
@@ -146,28 +146,26 @@ return true;
 }
 });
 devtools.hints.install_type_error_enhancer = (function devtools$hints$install_type_error_enhancer(){
-devtools.hints._STAR_original_global_error_handler_STAR_ = devtools.context.get_root.call(null).onerror;
+(devtools.hints._STAR_original_global_error_handler_STAR_ = devtools.context.get_root.call(null).onerror);
 
-devtools.context.get_root.call(null).onerror = devtools.hints.global_error_handler;
+(devtools.context.get_root.call(null).onerror = devtools.hints.global_error_handler);
 
 var prototype = TypeError.prototype;
-devtools.hints._STAR_original_type_error_prototype_to_string_STAR_ = prototype.toString;
+(devtools.hints._STAR_original_type_error_prototype_to_string_STAR_ = prototype.toString);
 
-return prototype.toString = ((function (prototype){
-return (function (){
+return (prototype.toString = (function (){
 var self = this;
 return devtools.hints.type_error_to_string.call(null,self);
-});})(prototype))
-;
+}));
 });
 devtools.hints.installed_QMARK_ = (function devtools$hints$installed_QMARK_(){
 return devtools.hints._STAR_installed_STAR_;
 });
 devtools.hints.install_BANG_ = (function devtools$hints$install_BANG_(){
-if(devtools.hints._STAR_installed_STAR_){
+if(cljs.core.truth_(devtools.hints._STAR_installed_STAR_)){
 return null;
 } else {
-devtools.hints._STAR_installed_STAR_ = true;
+(devtools.hints._STAR_installed_STAR_ = true);
 
 devtools.hints.install_type_error_enhancer.call(null);
 
@@ -175,21 +173,21 @@ return true;
 }
 });
 devtools.hints.uninstall_BANG_ = (function devtools$hints$uninstall_BANG_(){
-if(devtools.hints._STAR_installed_STAR_){
-devtools.hints._STAR_installed_STAR_ = false;
+if(cljs.core.truth_(devtools.hints._STAR_installed_STAR_)){
+(devtools.hints._STAR_installed_STAR_ = false);
 
 if(cljs.core.truth_(devtools.hints._STAR_original_type_error_prototype_to_string_STAR_)){
 } else {
 throw (new Error("Assert failed: *original-type-error-prototype-to-string*"));
 }
 
-devtools.context.get_root.call(null).onerror = devtools.hints._STAR_original_global_error_handler_STAR_;
+(devtools.context.get_root.call(null).onerror = devtools.hints._STAR_original_global_error_handler_STAR_);
 
 var prototype = TypeError.prototype;
-return prototype.toString = devtools.hints._STAR_original_type_error_prototype_to_string_STAR_;
+return (prototype.toString = devtools.hints._STAR_original_type_error_prototype_to_string_STAR_);
 } else {
 return null;
 }
 });
 
-//# sourceMappingURL=hints.js.map?rel=1599595550914
+//# sourceMappingURL=hints.js.map?rel=1696052576005

@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.10.238 {}
+// Compiled by ClojureScript 1.10.773 {}
 goog.provide('re_frame.interop');
 goog.require('cljs.core');
 goog.require('goog.async.nextTick');
@@ -15,7 +15,7 @@ re_frame.interop.ratom = (function re_frame$interop$ratom(x){
 return reagent.core.atom.call(null,x);
 });
 re_frame.interop.ratom_QMARK_ = (function re_frame$interop$ratom_QMARK_(x){
-if(!((x == null))){
+if((!((x == null)))){
 if(((false) || ((cljs.core.PROTOCOL_SENTINEL === x.reagent$ratom$IReactiveAtom$)))){
 return true;
 } else {
@@ -30,7 +30,7 @@ return cljs.core.native_satisfies_QMARK_.call(null,reagent.ratom.IReactiveAtom,x
 }
 });
 re_frame.interop.deref_QMARK_ = (function re_frame$interop$deref_QMARK_(x){
-if(!((x == null))){
+if((!((x == null)))){
 if((((x.cljs$lang$protocol_mask$partition0$ & (32768))) || ((cljs.core.PROTOCOL_SENTINEL === x.cljs$core$IDeref$)))){
 return true;
 } else {
@@ -57,7 +57,7 @@ re_frame.interop.set_timeout_BANG_ = (function re_frame$interop$set_timeout_BANG
 return setTimeout(f,ms);
 });
 re_frame.interop.now = (function re_frame$interop$now(){
-if(((typeof performance !== 'undefined') && (typeof performance.now !== 'undefined'))){
+if((((typeof performance !== 'undefined')) && ((typeof performance !== 'undefined') && (typeof performance.now !== 'undefined')))){
 return performance.now();
 } else {
 return Date.now();
@@ -68,19 +68,19 @@ return Date.now();
  *   e.g. reactions, ratoms, cursors.
  */
 re_frame.interop.reagent_id = (function re_frame$interop$reagent_id(reactive_val){
-if(((!((reactive_val == null)))?((((false) || ((cljs.core.PROTOCOL_SENTINEL === reactive_val.reagent$ratom$IReactiveAtom$))))?true:false):false)){
-return [cljs.core.str.cljs$core$IFn$_invoke$arity$1((function (){var pred__28419 = cljs.core.instance_QMARK_;
-var expr__28420 = reactive_val;
-if(cljs.core.truth_(pred__28419.call(null,reagent.ratom.RAtom,expr__28420))){
+if((((!((reactive_val == null))))?((((false) || ((cljs.core.PROTOCOL_SENTINEL === reactive_val.reagent$ratom$IReactiveAtom$))))?true:false):false)){
+return [(function (){var pred__21908 = cljs.core.instance_QMARK_;
+var expr__21909 = reactive_val;
+if(cljs.core.truth_(pred__21908.call(null,reagent.ratom.RAtom,expr__21909))){
 return "ra";
 } else {
-if(cljs.core.truth_(pred__28419.call(null,reagent.ratom.RCursor,expr__28420))){
+if(cljs.core.truth_(pred__21908.call(null,reagent.ratom.RCursor,expr__21909))){
 return "rc";
 } else {
-if(cljs.core.truth_(pred__28419.call(null,reagent.ratom.Reaction,expr__28420))){
+if(cljs.core.truth_(pred__21908.call(null,reagent.ratom.Reaction,expr__21909))){
 return "rx";
 } else {
-if(cljs.core.truth_(pred__28419.call(null,reagent.ratom.Track,expr__28420))){
+if(cljs.core.truth_(pred__21908.call(null,reagent.ratom.Track,expr__21909))){
 return "tr";
 } else {
 return "other";
@@ -88,10 +88,10 @@ return "other";
 }
 }
 }
-})()),cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.hash.call(null,reactive_val))].join('');
+})(),cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.hash.call(null,reactive_val))].join('');
 } else {
 return null;
 }
 });
 
-//# sourceMappingURL=interop.js.map?rel=1550771742760
+//# sourceMappingURL=interop.js.map?rel=1696052573264
