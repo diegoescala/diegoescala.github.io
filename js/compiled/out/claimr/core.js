@@ -12,33 +12,33 @@ goog.require('claimr.data.reason_codes');
 claimr.core.text = reagent.core.atom.call(null,"");
 claimr.core.parsed_txt = reagent.core.atom.call(null,"");
 claimr.core.selected_record = reagent.core.atom.call(null,cljs.core.PersistentArrayMap.EMPTY);
-claimr.core.url = "http://localhost:3449/";
+claimr.core.url = "https://diegoescala.github.io/";
 claimr.core.parse_input = (function claimr$core$parse_input(txt){
 return cljs.core.reset_BANG_.call(null,claimr.core.parsed_txt,claimr.logic.parser.parse835.call(null,cljs.core.deref.call(null,claimr.core.text)));
 });
 claimr.core.load_sample_data = (function claimr$core$load_sample_data(){
 var c__22799__auto__ = cljs.core.async.chan.call(null,(1));
 cljs.core.async.impl.dispatch.run.call(null,(function (){
-var f__22800__auto__ = (function (){var switch__22776__auto__ = (function (state_29196){
-var state_val_29197 = (state_29196[(1)]);
-if((state_val_29197 === (1))){
-var inst_29187 = [claimr.core.url,"sample.edi"].join('');
-var inst_29188 = cljs_http.client.get.call(null,inst_29187);
-var state_29196__$1 = state_29196;
-return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null,state_29196__$1,(2),inst_29188);
+var f__22800__auto__ = (function (){var switch__22776__auto__ = (function (state_29275){
+var state_val_29276 = (state_29275[(1)]);
+if((state_val_29276 === (1))){
+var inst_29266 = [claimr.core.url,"sample.edi"].join('');
+var inst_29267 = cljs_http.client.get.call(null,inst_29266);
+var state_29275__$1 = state_29275;
+return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null,state_29275__$1,(2),inst_29267);
 } else {
-if((state_val_29197 === (2))){
-var inst_29190 = (state_29196[(2)]);
-var inst_29191 = new cljs.core.Keyword(null,"body","body",-2049205669).cljs$core$IFn$_invoke$arity$1(inst_29190);
-var inst_29192 = cljs.core.reset_BANG_.call(null,claimr.core.text,inst_29191);
-var inst_29193 = cljs.core.deref.call(null,claimr.core.text);
-var inst_29194 = claimr.core.parse_input.call(null,inst_29193);
-var state_29196__$1 = (function (){var statearr_29198 = state_29196;
-(statearr_29198[(7)] = inst_29192);
+if((state_val_29276 === (2))){
+var inst_29269 = (state_29275[(2)]);
+var inst_29270 = new cljs.core.Keyword(null,"body","body",-2049205669).cljs$core$IFn$_invoke$arity$1(inst_29269);
+var inst_29271 = cljs.core.reset_BANG_.call(null,claimr.core.text,inst_29270);
+var inst_29272 = cljs.core.deref.call(null,claimr.core.text);
+var inst_29273 = claimr.core.parse_input.call(null,inst_29272);
+var state_29275__$1 = (function (){var statearr_29277 = state_29275;
+(statearr_29277[(7)] = inst_29271);
 
-return statearr_29198;
+return statearr_29277;
 })();
-return cljs.core.async.impl.ioc_helpers.return_chan.call(null,state_29196__$1,inst_29194);
+return cljs.core.async.impl.ioc_helpers.return_chan.call(null,state_29275__$1,inst_29273);
 } else {
 return null;
 }
@@ -47,17 +47,17 @@ return null;
 return (function() {
 var claimr$core$load_sample_data_$_state_machine__22777__auto__ = null;
 var claimr$core$load_sample_data_$_state_machine__22777__auto____0 = (function (){
-var statearr_29199 = [null,null,null,null,null,null,null,null];
-(statearr_29199[(0)] = claimr$core$load_sample_data_$_state_machine__22777__auto__);
+var statearr_29278 = [null,null,null,null,null,null,null,null];
+(statearr_29278[(0)] = claimr$core$load_sample_data_$_state_machine__22777__auto__);
 
-(statearr_29199[(1)] = (1));
+(statearr_29278[(1)] = (1));
 
-return statearr_29199;
+return statearr_29278;
 });
-var claimr$core$load_sample_data_$_state_machine__22777__auto____1 = (function (state_29196){
+var claimr$core$load_sample_data_$_state_machine__22777__auto____1 = (function (state_29275){
 while(true){
 var ret_value__22778__auto__ = (function (){try{while(true){
-var result__22779__auto__ = switch__22776__auto__.call(null,state_29196);
+var result__22779__auto__ = switch__22776__auto__.call(null,state_29275);
 if(cljs.core.keyword_identical_QMARK_.call(null,result__22779__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
 continue;
 } else {
@@ -65,23 +65,23 @@ return result__22779__auto__;
 }
 break;
 }
-}catch (e29200){if((e29200 instanceof Object)){
-var ex__22780__auto__ = e29200;
-var statearr_29201_29203 = state_29196;
-(statearr_29201_29203[(5)] = ex__22780__auto__);
+}catch (e29279){if((e29279 instanceof Object)){
+var ex__22780__auto__ = e29279;
+var statearr_29280_29282 = state_29275;
+(statearr_29280_29282[(5)] = ex__22780__auto__);
 
 
-cljs.core.async.impl.ioc_helpers.process_exception.call(null,state_29196);
+cljs.core.async.impl.ioc_helpers.process_exception.call(null,state_29275);
 
 return new cljs.core.Keyword(null,"recur","recur",-437573268);
 } else {
-throw e29200;
+throw e29279;
 
 }
 }})();
 if(cljs.core.keyword_identical_QMARK_.call(null,ret_value__22778__auto__,new cljs.core.Keyword(null,"recur","recur",-437573268))){
-var G__29204 = state_29196;
-state_29196 = G__29204;
+var G__29283 = state_29275;
+state_29275 = G__29283;
 continue;
 } else {
 return ret_value__22778__auto__;
@@ -89,12 +89,12 @@ return ret_value__22778__auto__;
 break;
 }
 });
-claimr$core$load_sample_data_$_state_machine__22777__auto__ = function(state_29196){
+claimr$core$load_sample_data_$_state_machine__22777__auto__ = function(state_29275){
 switch(arguments.length){
 case 0:
 return claimr$core$load_sample_data_$_state_machine__22777__auto____0.call(this);
 case 1:
-return claimr$core$load_sample_data_$_state_machine__22777__auto____1.call(this,state_29196);
+return claimr$core$load_sample_data_$_state_machine__22777__auto____1.call(this,state_29275);
 }
 throw(new Error('Invalid arity: ' + arguments.length));
 };
@@ -103,10 +103,10 @@ claimr$core$load_sample_data_$_state_machine__22777__auto__.cljs$core$IFn$_invok
 return claimr$core$load_sample_data_$_state_machine__22777__auto__;
 })()
 })();
-var state__22801__auto__ = (function (){var statearr_29202 = f__22800__auto__.call(null);
-(statearr_29202[(6)] = c__22799__auto__);
+var state__22801__auto__ = (function (){var statearr_29281 = f__22800__auto__.call(null);
+(statearr_29281[(6)] = c__22799__auto__);
 
-return statearr_29202;
+return statearr_29281;
 })();
 return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped.call(null,state__22801__auto__);
 }));
@@ -126,19 +126,19 @@ return cljs.core.assoc.call(null,cljs.core.assoc.call(null,totals,new cljs.core.
 });
 claimr.core.get_adjustments = (function claimr$core$get_adjustments(claims){
 return cljs.core.reduce.call(null,(function (acc,adjustment){
-var reasons = (function (){var G__29206 = cljs.core.PersistentVector.EMPTY;
-var G__29206__$1 = (((!((new cljs.core.Keyword(null,"adjustment1-reason","adjustment1-reason",23995995).cljs$core$IFn$_invoke$arity$1(adjustment) == null))))?cljs.core.conj.call(null,G__29206,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment1-reason","adjustment1-reason",23995995).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment1-reason","adjustment1-reason",23995995).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment1-amount","adjustment1-amount",68936795).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment1-quantity","adjustment1-quantity",-1985346837).cljs$core$IFn$_invoke$arity$1(adjustment)], null)):G__29206);
-var G__29206__$2 = (((!((new cljs.core.Keyword(null,"adjustment2-reason","adjustment2-reason",-2079490618).cljs$core$IFn$_invoke$arity$1(adjustment) == null))))?cljs.core.conj.call(null,G__29206__$1,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment2-reason","adjustment2-reason",-2079490618).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment2-reason","adjustment2-reason",-2079490618).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment2-amount","adjustment2-amount",25699987).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment2-quantity","adjustment2-quantity",-2085852489).cljs$core$IFn$_invoke$arity$1(adjustment)], null)):G__29206__$1);
-var G__29206__$3 = (((!((new cljs.core.Keyword(null,"adjustment3-reason","adjustment3-reason",-596066958).cljs$core$IFn$_invoke$arity$1(adjustment) == null))))?cljs.core.conj.call(null,G__29206__$2,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment3-reason","adjustment3-reason",-596066958).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment3-reason","adjustment3-reason",-596066958).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment3-amount","adjustment3-amount",-1825012863).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment3-quantity","adjustment3-quantity",42607371).cljs$core$IFn$_invoke$arity$1(adjustment)], null)):G__29206__$2);
+var reasons = (function (){var G__29285 = cljs.core.PersistentVector.EMPTY;
+var G__29285__$1 = (((!((new cljs.core.Keyword(null,"adjustment1-reason","adjustment1-reason",23995995).cljs$core$IFn$_invoke$arity$1(adjustment) == null))))?cljs.core.conj.call(null,G__29285,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment1-reason","adjustment1-reason",23995995).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment1-reason","adjustment1-reason",23995995).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment1-amount","adjustment1-amount",68936795).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment1-quantity","adjustment1-quantity",-1985346837).cljs$core$IFn$_invoke$arity$1(adjustment)], null)):G__29285);
+var G__29285__$2 = (((!((new cljs.core.Keyword(null,"adjustment2-reason","adjustment2-reason",-2079490618).cljs$core$IFn$_invoke$arity$1(adjustment) == null))))?cljs.core.conj.call(null,G__29285__$1,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment2-reason","adjustment2-reason",-2079490618).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment2-reason","adjustment2-reason",-2079490618).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment2-amount","adjustment2-amount",25699987).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment2-quantity","adjustment2-quantity",-2085852489).cljs$core$IFn$_invoke$arity$1(adjustment)], null)):G__29285__$1);
+var G__29285__$3 = (((!((new cljs.core.Keyword(null,"adjustment3-reason","adjustment3-reason",-596066958).cljs$core$IFn$_invoke$arity$1(adjustment) == null))))?cljs.core.conj.call(null,G__29285__$2,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment3-reason","adjustment3-reason",-596066958).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment3-reason","adjustment3-reason",-596066958).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment3-amount","adjustment3-amount",-1825012863).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment3-quantity","adjustment3-quantity",42607371).cljs$core$IFn$_invoke$arity$1(adjustment)], null)):G__29285__$2);
 if((!((new cljs.core.Keyword(null,"adjustment4-reason","adjustment4-reason",-1786246084).cljs$core$IFn$_invoke$arity$1(adjustment) == null)))){
-return cljs.core.conj.call(null,G__29206__$3,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment4-reason","adjustment4-reason",-1786246084).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment4-reason","adjustment4-reason",-1786246084).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment4-amount","adjustment4-amount",-2132582069).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment4-quantity","adjustment4-quantity",1142986702).cljs$core$IFn$_invoke$arity$1(adjustment)], null));
+return cljs.core.conj.call(null,G__29285__$3,new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"code","code",1586293142),new cljs.core.Keyword(null,"adjustment4-reason","adjustment4-reason",-1786246084).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"description","description",-1428560544),cljs.core.get.call(null,claimr.data.reason_codes.codes,new cljs.core.Keyword(null,"adjustment4-reason","adjustment4-reason",-1786246084).cljs$core$IFn$_invoke$arity$1(adjustment)),new cljs.core.Keyword(null,"amount","amount",364489504),new cljs.core.Keyword(null,"adjustment4-amount","adjustment4-amount",-2132582069).cljs$core$IFn$_invoke$arity$1(adjustment),new cljs.core.Keyword(null,"quantity","quantity",-1929050694),new cljs.core.Keyword(null,"adjustment4-quantity","adjustment4-quantity",1142986702).cljs$core$IFn$_invoke$arity$1(adjustment)], null));
 } else {
-return G__29206__$3;
+return G__29285__$3;
 }
 })();
 return cljs.core.conj.call(null,acc,cljs.core.assoc.call(null,adjustment,new cljs.core.Keyword(null,"reasons","reasons",572104841),reasons));
-}),cljs.core.PersistentVector.EMPTY,cljs.core.filter.call(null,cljs.core.some_QMARK_,cljs.core.flatten.call(null,cljs.core.map.call(null,cljs.core.concat,cljs.core.map.call(null,(function (p1__29205_SHARP_){
-return cljs.core.get.call(null,p1__29205_SHARP_,"Claim Adjustments");
+}),cljs.core.PersistentVector.EMPTY,cljs.core.filter.call(null,cljs.core.some_QMARK_,cljs.core.flatten.call(null,cljs.core.map.call(null,cljs.core.concat,cljs.core.map.call(null,(function (p1__29284_SHARP_){
+return cljs.core.get.call(null,p1__29284_SHARP_,"Claim Adjustments");
 }),claims)))));
 });
 claimr.core.round = (function claimr$core$round(num){
@@ -148,10 +148,10 @@ claimr.core.metrics = (function claimr$core$metrics(claims){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel","div.futurepanel",-134688610),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"min-width","min-width",1926193728),"50%"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__header","div.futurepanel__header",-1105493815),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.futurepanel__title","h1.futurepanel__title",-936100986),"Metrics"], null)], null),(function (){var totals = claimr.core.sum_totals.call(null,claims);
 var adjustments = claimr.core.get_adjustments.call(null,claims);
 return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__body","div.futurepanel__body",-1723655478),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3.heading.title","h3.heading.title",1796217461),"Accepted"], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.metric,cljs.core.count.call(null,claims),"Claims",new cljs.core.Keyword(null,"optimal","optimal",-99782576)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.metric,["$",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"total-charged","total-charged",677199275).cljs$core$IFn$_invoke$arity$1(totals))].join(''),"Charged",new cljs.core.Keyword(null,"optimal","optimal",-99782576)], null),new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.metric,["$",cljs.core.str.cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"total-paid","total-paid",1797153902).cljs$core$IFn$_invoke$arity$1(totals))].join(''),"Paid",new cljs.core.Keyword(null,"optimal","optimal",-99782576)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),"futurepanel__divider"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3.heading.title","h3.heading.title",1796217461),"Denied"], null),(function (){var reasons = cljs.core.flatten.call(null,cljs.core.map.call(null,new cljs.core.Keyword(null,"reasons","reasons",572104841),adjustments));
-var reason_amounts = cljs.core.sort_by.call(null,cljs.core.val,cljs.core._GT_,cljs.core.reduce.call(null,(function (acc,p__29207){
-var vec__29208 = p__29207;
-var code = cljs.core.nth.call(null,vec__29208,(0),null);
-var adjustments__$1 = cljs.core.nth.call(null,vec__29208,(1),null);
+var reason_amounts = cljs.core.sort_by.call(null,cljs.core.val,cljs.core._GT_,cljs.core.reduce.call(null,(function (acc,p__29286){
+var vec__29287 = p__29286;
+var code = cljs.core.nth.call(null,vec__29287,(0),null);
+var adjustments__$1 = cljs.core.nth.call(null,vec__29287,(1),null);
 return cljs.core.assoc.call(null,acc,code,cljs.core.reduce.call(null,cljs.core._PLUS_,cljs.core.map.call(null,parseFloat,cljs.core.map.call(null,new cljs.core.Keyword(null,"amount","amount",364489504),adjustments__$1))));
 }),cljs.core.PersistentArrayMap.EMPTY,cljs.core.group_by.call(null,new cljs.core.Keyword(null,"code","code",1586293142),reasons)));
 var max_amount_reason = cljs.core.first.call(null,reason_amounts);
@@ -166,10 +166,10 @@ return null;
 claimr.core.adjustments_view = (function claimr$core$adjustments_view(claims){
 var adjustments = claimr.core.get_adjustments.call(null,claims);
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel","div.futurepanel",-134688610),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__header","div.futurepanel__header",-1105493815),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.futurepanel__title","h1.futurepanel__title",-936100986),"Adjustments"], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__body","div.futurepanel__body",-1723655478),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2.heading.title","h2.heading.title",-319914375),"Reason Codes"], null),(function (){var reasons = cljs.core.flatten.call(null,cljs.core.map.call(null,new cljs.core.Keyword(null,"reasons","reasons",572104841),adjustments));
-var reason_amounts = cljs.core.sort_by.call(null,cljs.core.val,cljs.core._GT_,cljs.core.reduce.call(null,(function (acc,p__29211){
-var vec__29212 = p__29211;
-var code = cljs.core.nth.call(null,vec__29212,(0),null);
-var adjustments__$1 = cljs.core.nth.call(null,vec__29212,(1),null);
+var reason_amounts = cljs.core.sort_by.call(null,cljs.core.val,cljs.core._GT_,cljs.core.reduce.call(null,(function (acc,p__29290){
+var vec__29291 = p__29290;
+var code = cljs.core.nth.call(null,vec__29291,(0),null);
+var adjustments__$1 = cljs.core.nth.call(null,vec__29291,(1),null);
 return cljs.core.assoc.call(null,acc,code,cljs.core.reduce.call(null,cljs.core._PLUS_,cljs.core.map.call(null,parseFloat,cljs.core.map.call(null,new cljs.core.Keyword(null,"amount","amount",364489504),adjustments__$1))));
 }),cljs.core.PersistentArrayMap.EMPTY,cljs.core.group_by.call(null,new cljs.core.Keyword(null,"code","code",1586293142),reasons)));
 return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),claims], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),cljs.core.prn_str.call(null,cljs.core.sort_by.call(null,cljs.core.second,cljs.core._GT_,cljs.core.frequencies.call(null,cljs.core.map.call(null,new cljs.core.Keyword(null,"code","code",1586293142),reasons))))], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),cljs.core.prn_str.call(null,reasons)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),cljs.core.prn_str.call(null,reason_amounts)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),cljs.core.prn_str.call(null,adjustments)], null)], null);
@@ -183,8 +183,8 @@ return claimr.core.load_sample_data.call(null);
 })], null),"Load Sample Data"], null)], null)], null);
 });
 claimr.core.edi = (function claimr$core$edi(txt){
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel","div.futurepanel",-134688610),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__header","div.futurepanel__header",-1105493815),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.futurepanel__title","h1.futurepanel__title",-936100986),"Paste 835 Here"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__body","div.futurepanel__body",-1723655478),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futureinput.futureinput--text","div.futureinput.futureinput--text",-979491601),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"textarea","textarea",-650375824),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"value","value",305978217),txt,new cljs.core.Keyword(null,"height","height",1025178622),(300),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__29215_SHARP_){
-cljs.core.reset_BANG_.call(null,claimr.core.text,p1__29215_SHARP_.target.value);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel","div.futurepanel",-134688610),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__header","div.futurepanel__header",-1105493815),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.futurepanel__title","h1.futurepanel__title",-936100986),"Paste 835 Here"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__body","div.futurepanel__body",-1723655478),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futureinput.futureinput--text","div.futureinput.futureinput--text",-979491601),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"textarea","textarea",-650375824),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"type","type",1174270348),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"value","value",305978217),txt,new cljs.core.Keyword(null,"height","height",1025178622),(300),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__29294_SHARP_){
+cljs.core.reset_BANG_.call(null,claimr.core.text,p1__29294_SHARP_.target.value);
 
 return claimr.core.parse_input.call(null,cljs.core.deref.call(null,claimr.core.text));
 })], null)], null)], null)], null)], null);
@@ -200,25 +200,25 @@ return (new Audio("beep.mp3")).play();
 })], null),[cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.get.call(null,patient,new cljs.core.Keyword(null,"last-name","last-name",-1695738974))),", ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.get.call(null,patient,new cljs.core.Keyword(null,"first-name","first-name",-1559982131)))," ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.get.call(null,patient,new cljs.core.Keyword(null,"middle-name","middle-name",-931857342)))].join('')], null),(cljs.core.truth_(cljs.core.deref.call(null,expanded))?(function (){var provider_name = cljs.core.get_in.call(null,claim__$1,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Service Provider Name",new cljs.core.Keyword(null,"org-or-last-name","org-or-last-name",755800017)], null));
 var claim_amount = cljs.core.get_in.call(null,claim__$1,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Claim Level Data",new cljs.core.Keyword(null,"total-claim-charge-amount","total-claim-charge-amount",-329436183)], null));
 var claim_payment = cljs.core.get_in.call(null,claim__$1,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Claim Level Data",new cljs.core.Keyword(null,"claim-payment-amount","claim-payment-amount",-1868785076)], null));
-return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futuremetric","div.futuremetric",-854132339),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"text-align","text-align",1786091845),new cljs.core.Keyword(null,"left","left",-399115937)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3.title","h3.title",1837656649),["Provider: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(provider_name)].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h4","h4",2004862993),["Charged: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(claim_amount)].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h4","h4",2004862993),["Paid: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(claim_payment)].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),"futurepanel__divider"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3","h3",2067611163),"Adjustments"], null),(function (){var iter__4529__auto__ = (function claimr$core$claim_view_$_iter__29217(s__29218){
+return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futuremetric","div.futuremetric",-854132339),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"text-align","text-align",1786091845),new cljs.core.Keyword(null,"left","left",-399115937)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3.title","h3.title",1837656649),["Provider: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(provider_name)].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h4","h4",2004862993),["Charged: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(claim_amount)].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h4","h4",2004862993),["Paid: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(claim_payment)].join('')], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),"futurepanel__divider"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h3","h3",2067611163),"Adjustments"], null),(function (){var iter__4529__auto__ = (function claimr$core$claim_view_$_iter__29296(s__29297){
 return (new cljs.core.LazySeq(null,(function (){
-var s__29218__$1 = s__29218;
+var s__29297__$1 = s__29297;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__29218__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__29297__$1);
 if(temp__5720__auto__){
-var s__29218__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__29218__$2)){
-var c__4527__auto__ = cljs.core.chunk_first.call(null,s__29218__$2);
+var s__29297__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__29297__$2)){
+var c__4527__auto__ = cljs.core.chunk_first.call(null,s__29297__$2);
 var size__4528__auto__ = cljs.core.count.call(null,c__4527__auto__);
-var b__29220 = cljs.core.chunk_buffer.call(null,size__4528__auto__);
-if((function (){var i__29219 = (0);
+var b__29299 = cljs.core.chunk_buffer.call(null,size__4528__auto__);
+if((function (){var i__29298 = (0);
 while(true){
-if((i__29219 < size__4528__auto__)){
-var adj = cljs.core._nth.call(null,c__4527__auto__,i__29219);
-cljs.core.chunk_append.call(null,b__29220,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Amount: "], null),new cljs.core.Keyword(null,"amount","amount",364489504).cljs$core$IFn$_invoke$arity$1(adj)], null),new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Reason: "], null),new cljs.core.Keyword(null,"code","code",1586293142).cljs$core$IFn$_invoke$arity$1(adj)," (",new cljs.core.Keyword(null,"description","description",-1428560544).cljs$core$IFn$_invoke$arity$1(adj),")"], null)], null));
+if((i__29298 < size__4528__auto__)){
+var adj = cljs.core._nth.call(null,c__4527__auto__,i__29298);
+cljs.core.chunk_append.call(null,b__29299,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Amount: "], null),new cljs.core.Keyword(null,"amount","amount",364489504).cljs$core$IFn$_invoke$arity$1(adj)], null),new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Reason: "], null),new cljs.core.Keyword(null,"code","code",1586293142).cljs$core$IFn$_invoke$arity$1(adj)," (",new cljs.core.Keyword(null,"description","description",-1428560544).cljs$core$IFn$_invoke$arity$1(adj),")"], null)], null));
 
-var G__29221 = (i__29219 + (1));
-i__29219 = G__29221;
+var G__29300 = (i__29298 + (1));
+i__29298 = G__29300;
 continue;
 } else {
 return true;
@@ -226,13 +226,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29220),claimr$core$claim_view_$_iter__29217.call(null,cljs.core.chunk_rest.call(null,s__29218__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29299),claimr$core$claim_view_$_iter__29296.call(null,cljs.core.chunk_rest.call(null,s__29297__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29220),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29299),null);
 }
 } else {
-var adj = cljs.core.first.call(null,s__29218__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Amount: "], null),new cljs.core.Keyword(null,"amount","amount",364489504).cljs$core$IFn$_invoke$arity$1(adj)], null),new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Reason: "], null),new cljs.core.Keyword(null,"code","code",1586293142).cljs$core$IFn$_invoke$arity$1(adj)," (",new cljs.core.Keyword(null,"description","description",-1428560544).cljs$core$IFn$_invoke$arity$1(adj),")"], null)], null),claimr$core$claim_view_$_iter__29217.call(null,cljs.core.rest.call(null,s__29218__$2)));
+var adj = cljs.core.first.call(null,s__29297__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Amount: "], null),new cljs.core.Keyword(null,"amount","amount",364489504).cljs$core$IFn$_invoke$arity$1(adj)], null),new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"span.heading.title","span.heading.title",195981145),"Reason: "], null),new cljs.core.Keyword(null,"code","code",1586293142).cljs$core$IFn$_invoke$arity$1(adj)," (",new cljs.core.Keyword(null,"description","description",-1428560544).cljs$core$IFn$_invoke$arity$1(adj),")"], null)], null),claimr$core$claim_view_$_iter__29296.call(null,cljs.core.rest.call(null,s__29297__$2)));
 }
 } else {
 return null;
@@ -241,33 +241,33 @@ break;
 }
 }),null,null));
 });
-return iter__4529__auto__.call(null,cljs.core.filter.call(null,(function (p1__29216_SHARP_){
-return cljs.core.not_EQ_.call(null,"0",new cljs.core.Keyword(null,"amount","amount",364489504).cljs$core$IFn$_invoke$arity$1(p1__29216_SHARP_));
+return iter__4529__auto__.call(null,cljs.core.filter.call(null,(function (p1__29295_SHARP_){
+return cljs.core.not_EQ_.call(null,"0",new cljs.core.Keyword(null,"amount","amount",364489504).cljs$core$IFn$_invoke$arity$1(p1__29295_SHARP_));
 }),cljs.core.flatten.call(null,cljs.core.map.call(null,new cljs.core.Keyword(null,"reasons","reasons",572104841),claimr.core.get_adjustments.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [claim__$1], null))))));
 })()], null);
 })():null)], null);
 });
 });
 claimr.core.claims_bar = (function claimr$core$claims_bar(claims){
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel","div.futurepanel",-134688610),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__header","div.futurepanel__header",-1105493815),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.futurepanel__title","h1.futurepanel__title",-936100986),"Claims"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__body","div.futurepanel__body",-1723655478),(function (){var iter__4529__auto__ = (function claimr$core$claims_bar_$_iter__29222(s__29223){
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel","div.futurepanel",-134688610),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__header","div.futurepanel__header",-1105493815),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.futurepanel__title","h1.futurepanel__title",-936100986),"Claims"], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.futurepanel__body","div.futurepanel__body",-1723655478),(function (){var iter__4529__auto__ = (function claimr$core$claims_bar_$_iter__29301(s__29302){
 return (new cljs.core.LazySeq(null,(function (){
-var s__29223__$1 = s__29223;
+var s__29302__$1 = s__29302;
 while(true){
-var temp__5720__auto__ = cljs.core.seq.call(null,s__29223__$1);
+var temp__5720__auto__ = cljs.core.seq.call(null,s__29302__$1);
 if(temp__5720__auto__){
-var s__29223__$2 = temp__5720__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__29223__$2)){
-var c__4527__auto__ = cljs.core.chunk_first.call(null,s__29223__$2);
+var s__29302__$2 = temp__5720__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__29302__$2)){
+var c__4527__auto__ = cljs.core.chunk_first.call(null,s__29302__$2);
 var size__4528__auto__ = cljs.core.count.call(null,c__4527__auto__);
-var b__29225 = cljs.core.chunk_buffer.call(null,size__4528__auto__);
-if((function (){var i__29224 = (0);
+var b__29304 = cljs.core.chunk_buffer.call(null,size__4528__auto__);
+if((function (){var i__29303 = (0);
 while(true){
-if((i__29224 < size__4528__auto__)){
-var claim = cljs.core._nth.call(null,c__4527__auto__,i__29224);
-cljs.core.chunk_append.call(null,b__29225,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.claim_view,claim], null));
+if((i__29303 < size__4528__auto__)){
+var claim = cljs.core._nth.call(null,c__4527__auto__,i__29303);
+cljs.core.chunk_append.call(null,b__29304,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.claim_view,claim], null));
 
-var G__29226 = (i__29224 + (1));
-i__29224 = G__29226;
+var G__29305 = (i__29303 + (1));
+i__29303 = G__29305;
 continue;
 } else {
 return true;
@@ -275,13 +275,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29225),claimr$core$claims_bar_$_iter__29222.call(null,cljs.core.chunk_rest.call(null,s__29223__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29304),claimr$core$claims_bar_$_iter__29301.call(null,cljs.core.chunk_rest.call(null,s__29302__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29225),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__29304),null);
 }
 } else {
-var claim = cljs.core.first.call(null,s__29223__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.claim_view,claim], null),claimr$core$claims_bar_$_iter__29222.call(null,cljs.core.rest.call(null,s__29223__$2)));
+var claim = cljs.core.first.call(null,s__29302__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.claim_view,claim], null),claimr$core$claims_bar_$_iter__29301.call(null,cljs.core.rest.call(null,s__29302__$2)));
 }
 } else {
 return null;
@@ -305,4 +305,4 @@ return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMP
 });
 reagent.dom.render.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [claimr.core.main], null),document.getElementById("app"));
 
-//# sourceMappingURL=core.js.map?rel=1696489864879
+//# sourceMappingURL=core.js.map?rel=1696490335093

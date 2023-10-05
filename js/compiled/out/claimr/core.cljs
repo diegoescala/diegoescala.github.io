@@ -13,7 +13,7 @@
 (def parsed-txt (r/atom ""))
 (def selected-record (r/atom {}))
 
-(def url "http://localhost:3449/")
+(def url "https://diegoescala.github.io/")
 
 
 (defn parse-input
